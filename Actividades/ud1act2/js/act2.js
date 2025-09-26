@@ -8,12 +8,25 @@ var eleccion1 = prompt(jugador1+"Introduce tu eleccion");
 var eleccion2 = prompt(jugador2+"Introduce tu eleccion");
 var ganador=null;
 
+eleccion1 = eleccion1.charAt(0).toUpperCase() + eleccion1.slice(1).toLowerCase();
+eleccion2 = eleccion2.charAt(0).toUpperCase() + eleccion2.slice(1).toLowerCase();
 
-if (eleccion1&&eleccion2 != opciones[0,2]){
-    alert ("Elija una respuesta valida")
+
+if (opciones.includes(eleccion1) || opciones.includes(eleccion2)){
+    alert ("Elija una respuesta valida");
+}else {
+  if (eleccion1 === eleccion2) {
+    alert("¡Habéis empatado!");
+  } else if (
+    (eleccion1 === "Piedra" && eleccion2 === "Tijera") ||(eleccion1 === "Papel" && eleccion2 === "Piedra") ||(eleccion1 === "Tijera" && eleccion2 === "Papel")
+  ) {
+    alert("El ganador es " + jugador1);
+  } else {
+    alert("El ganador es " + jugador2);
+  }
 }
 
-switch(ganador){
+/* switch(ganador){
     case opcion1:
         if(eleccion1 == opciones[0] && eleccion2 == opciones[1]){
         alert("El ganador es "+jugador2);}
@@ -43,26 +56,5 @@ switch(ganador){
         alert("Habeis empatado");}
         break;
 }
-
-//pedra Vs papel
-/* if(eleccion1 == opciones[0] && eleccion2 == opciones[1]){
-    alert("El ganador es "+jugador2);
-} */
-
-
-/* function eligeVariable(){
-    jugador1 = prompt("Elije piedra papel o tijera");
-    jugador2 = prompt("Elije piedra papel o tijera");
-    if (jugador1 && jugador2 ){
-
-    }
-}
-function juego(){
-    let 
-    
-
-    
-}
-function ganador(){
-
-} */
+console.log("El ganador es: "+ganador);
+ */
