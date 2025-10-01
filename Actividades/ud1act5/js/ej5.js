@@ -4,23 +4,31 @@ jugadas de ambos jugadores.
  var jugador1 = prompt("Introduce nombre de jugador: ");
 var jugador2 =  prompt("Introduce nombre de jugador: ");    
 
-var jugada;
-function resultado(jugada){
-    /* var puntosJ1= jugada1j1 + jugada2j1 + jugada3j1;
-    var puntosJ2= jugada2j2 + jugada3j2 + jugada3j2; */
+
+var opciones =["Piedra","Papel","Tijera"];
+
+const partida1={opciones:[2],opciones:[3],};
+
+function resultado(partida1){
+        
+  if (eleccion1 === eleccion2) {
+    return alert("¡Habéis empatado!");
+  } else if (
+    (eleccion1 === "Piedra" && eleccion2 === "Tijera") ||
+    (eleccion1 === "Papel" && eleccion2 === "Piedra") ||
+    (eleccion1 === "Tijera" && eleccion2 === "Papel"))
+     {
+    return alert("El ganador es " + jugador1);
     
-    if (puntosJ1 > puntosJ2) {
-        alert("El ganador es " + jugador1); 
-        } else if (puntosJ2 > puntosJ1) {
-        alert("El ganador es " + jugador2);
-        } else {
-                alert("¡Habéis empatado!");
-                }   
-        }   
-resultado(jugada1j1, jugada2j2, jugada2j1, jugada3j2, jugada3j1, jugada3j2); 
+  } else if((eleccion2 === "Piedra" && eleccion1 === "Tijera") ||
+    (eleccion2 === "Papel" && eleccion1 === "Piedra") ||
+    (eleccion2 === "Tijera" && eleccion1 === "Papel")) {
 
-function piedraPapelTijera(){
+    return alert("El ganador es " + jugador2);
+  }else{
+    return alert("Elija una respuesta valida");
+  }
 
-    let jugadas={Piedra:"Tijera",Tijera:"Papel",Papel:"Piedra"}
+  
 }
-
+resultado(eleccion1,eleccion2);
