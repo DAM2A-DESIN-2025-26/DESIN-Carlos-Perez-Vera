@@ -1,7 +1,7 @@
 
 
 var diasSemana= ["Lunes","Martes","Miercoles","Viernes","Sabado","Domingo"];
-var meses= ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+//var meses= ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
 Date();
 
@@ -25,7 +25,7 @@ function infoCumple(){
     
     var diasSemana = diasSemana[cumpleaños.getDay()]
 
-    
+    alert( )
     
 }
 
