@@ -12,3 +12,11 @@ for(let i = 0;i<diasLaborables.length;i++){
 
     }
  */
+class Perro {
+    #nombre;
+
+    constructor(params){
+        
+    }
+
+}
