@@ -1,5 +1,5 @@
  //import  Persona from "/Users/carlos/Desktop/DESIN-Carlos-Perez-Vera/DESIN-Carlos-Perez-Vera-3/Actividades/Ud1_Act2/js/ej8";
-class Sucesor {
+class Sucesor extends Persona {
 
     constructor (nombre,apellidos,tieneMoto=false) {
        super(nombre,apellidos);
