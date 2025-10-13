@@ -1,7 +1,15 @@
 
 
+function crearPersona(nombre,apellidos,edad=null,...contactos){
+    const persona ={
+        nombreCompleto : `${nombre} ${apellidos}`,
+        edad : edad,
+        contactos : contactos
+    };
+    mostrarInfo(persona);
+}
 
-function crearPersona(){
+/* function crearPersona(){
 
     // Caso 1: Solo nombre y apellidos.
 
@@ -36,32 +44,24 @@ function crearPersona(){
         }
         mostrarInfo(persona);
     }
-
+ */
     //Mostrar info persona
 
-    function mostrarInfo(persona){
+function mostrarInfo(persona){
+
         console.log("Informacion de usuario");
         console.log(`Nombre: ${persona.nombreCompleto}`);
-        console.log(`Edad: +${persona.edad}`);
+        console.log(`Edad: ${persona.edad}`);
 
-        if(persona.contactos && persona.contactos.lenght>0){
+        if(persona.contactos && persona.contactos.length>0){
             console.log("Formas de contacto");
-
-            
-            persona.contactos.forEach(function (contactos,index) {
-                console.log(`(${index+1}) ${contactos}`);
-            });
-
-            personas.contactos.forEach((contactos,index) => {
-                console.log(`(${index+1}) ${contactos}`);
-            });
+            persona.contactos.forEach((c,i) => console.log(`(${i + 1}) ${c}`));
         }else{
             console.log("No se han introducido formas de contacto.");
         }
     }
-}
 crearPersona("Ana","Vera");
 
 crearPersona("Juan","Ramirez",28);
 
-crearPersona("Victor","Pérez",45,[654094432,"juan@gmail.com"]);
+crearPersona("Victor","Pérez",45,654094432,"juan@gmail.com");
