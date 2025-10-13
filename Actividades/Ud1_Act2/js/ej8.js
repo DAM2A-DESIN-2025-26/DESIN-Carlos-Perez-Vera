@@ -1,5 +1,5 @@
 
-class Persona {
+ class Persona {
 
     constructor(nombre= " ",apellidos= " "){
         this.nombre = nombre;
@@ -41,3 +41,4 @@ persona2.comer(["paella", "ensalada", "flan"]);
 
 const persona3 = new Persona("Julian", "Dominguez");
 persona3.comer(["pizza"]);
+

@@ -1,8 +1,8 @@
- 
-class Sucesor extends Persona {
+ //import  Persona from "/Users/carlos/Desktop/DESIN-Carlos-Perez-Vera/DESIN-Carlos-Perez-Vera-3/Actividades/Ud1_Act2/js/ej8";
+class Sucesor {
 
     constructor (nombre,apellidos,tieneMoto=false) {
-        super(nombre,apellidos);
+       super(nombre,apellidos);
 
         this.tieneMoto=tieneMoto;
     }
@@ -50,3 +50,4 @@ padre1.comer();
 const padre2 = new Progenitor("Pedro","Mata",true);
 padre2.desplazarse("Oviedo","Gijon");
 padre2.comer();
+
