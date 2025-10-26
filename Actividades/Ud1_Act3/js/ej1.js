@@ -6,23 +6,24 @@ class centralMedidas{
     /* Contiene una tabla de enteros correspondientes a las medidas tomadas durante un mes en distintas ciudades. La primera columna almacenará el nombre de la ciudad.
     Inicialmente el array está vacío. */
 
-     medidas =[];
+   /*   medidas =[];
 
      ciudad="";
 
      valores=0;
+ */
+    constructor() {
+    
+    this._medidas = [];
+  }
 
-    constructor(medidas={}){
-        this.medidas={};
-    }
+  get medidas() {
+    return this._medidas;
+  }
 
-    get ciudad(){
-        return this._ciudad;
-    }
-
-    get valores(){
-        return this._valores
-    }
+  set medidas(nuevasMedidas) {
+    this._medidas = nuevasMedidas;
+  }
 
 /* Crea una nueva fila en la tabla de medidas correspondiente a la ciudad ciudad con los valores del array valores
     Devuelve verdadero si se ha podido insertar las medidas y falso si no (si la ciudad ya existe, o el segundo parámetro no
@@ -30,18 +31,22 @@ class centralMedidas{
 
     insertarMedidas(ciudad,valores){
 
-        if(!Array.isArray(valores) || valores.length != 30){
-            return false;
-        }
-
-        for(let fila of this.medidas){
-            if(file[0] === ciudad){
+        for(let fila of this._medidas){
+            if(fila[0]==ciudad){
+                console.log("La ciudad ya existe.");
                 return false;
-            } 
+            }
+            if(valores.lenght != 30){
+                console.log("Introduzca solo 30 valores.");
+                return false;
+            }
+            this.medidas.push([ciudad, valorez])
+            console.log(`Medidas añadidas ${ciudad}`);
+            return true;
         }
-
-        this.medidas.push([ciudad, ...valores]);
     }
+    
+
 
     /* Crea una nueva fila en la tabla de medidas correspondiente a la ciudad ciudad con valores aleatorios.
     Devuelve verdadero si se ha podido insertar las medidas y
