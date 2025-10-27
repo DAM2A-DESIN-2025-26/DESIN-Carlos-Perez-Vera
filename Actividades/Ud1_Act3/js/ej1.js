@@ -143,6 +143,15 @@ class centralMedidas{
         for(let fila of this.medidas){
             
         }
+        
+        for (let fila of this._medidas) {
+      let ciudad = fila[0];
+      let valores = fila[1];
+
+      console.log("Ciudad: " + ciudad);
+      console.log("Medidas: " + valores.join(", ")); 
+      
+        }
     }
     
     
