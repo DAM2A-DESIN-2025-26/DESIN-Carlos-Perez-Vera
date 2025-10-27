@@ -1,17 +1,10 @@
 
-
+/* Contiene una tabla de enteros correspondientes a las medidas tomadas durante un mes en distintas ciudades. La primera columna almacenará el nombre de la ciudad.
+    Inicialmente el array está vacío. */
 
 class centralMedidas{
     
-    /* Contiene una tabla de enteros correspondientes a las medidas tomadas durante un mes en distintas ciudades. La primera columna almacenará el nombre de la ciudad.
-    Inicialmente el array está vacío. */
-
-   /*   medidas =[];
-
-     ciudad="";
-
-     valores=0;
- */
+  
     constructor() {
     
     this._medidas = [];
@@ -74,7 +67,21 @@ class centralMedidas{
     mes */
 
     mediaMedia(ciudad){
+      for(let fila of this._medidas){
+            if(fila[0]===ciudad){
+                let valores=fila[1];
+                let suma = 0;
 
+                for(let i = 0; i==valores.lenght;i++){
+                  suma = suma + valores[i];
+                }
+
+                let media = suma / valores.lenght;
+                console.log("La temperatura media en: "+ciudad+"es de "+media+"º");
+                return media;
+            }
+            console.log("La ciudad no esta en la tabla");
+        }
     }
 
     /* Devuelve la temperatura media de todas las ciudades durante el
