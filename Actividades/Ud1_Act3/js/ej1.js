@@ -87,7 +87,27 @@ class centralMedidas{
     /* Devuelve la temperatura media de todas las ciudades durante el
     mes */
 
-    mediaMedidasTotal(){}
+    mediaMedidasTotal(){
+        if(this._medidas === 0){
+            console.log("No hay medidas en la tabla");
+            return null;
+        }
+
+        let sumaTotal=0;
+        let contador=0;
+
+        for(let fila of this._medidas){
+            let valores=fila[1];
+            for(let i=0;i<valores.lenght;i++){
+                sumaTotal = sumaTotal+valores[i];
+                contador = contador+1;
+            }
+            let media = sumaTotal /contador;
+            console.log("la temperatura media total es de : "+media)
+            return media;
+        }
+
+    }
 
     
 
@@ -96,6 +116,7 @@ class centralMedidas{
 
     eliminaCiudad(ciudad){
 
+        
     }
 
     /* Se muestran por consola las medidas correspondientes a cada
