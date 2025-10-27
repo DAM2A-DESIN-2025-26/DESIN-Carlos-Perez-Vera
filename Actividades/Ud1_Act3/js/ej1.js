@@ -53,11 +53,21 @@ class centralMedidas{
     falso si no (si la ciudad ya existe). */
 
     insertaAleatorio(ciudad){
-        if(this.medidas.some(fila => fila[0] == "Madrid")){
-            return false;
-        }
-        
+        for(let fila of this._medidas){
+            if(fila[0]==ciudad){
+                console.log("La ciudad ya existe.");
+                return false;
+            }
+
             
+        }
+        let valores=[];
+            for(let i=0;i<30;i++){
+              let numAleatorio = Math.floor(Math.random(46)-10);
+              numAleatorio.push([ciudad,valores]);
+              return true;
+            }
+        
     }
 
     /* Devuelve la temperatura media de la ciudad indicada durante el
