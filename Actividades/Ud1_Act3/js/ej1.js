@@ -7,15 +7,15 @@ class centralMedidas{
   
     constructor() {
     
-    this._medidas = [];
+    this.medidas = [];
   }
 
   get medidas() {
-    return this._medidas;
+    return this.medidas;
   }
 
   set medidas(nuevasMedidas) {
-    this._medidas = nuevasMedidas;
+    this.medidas = nuevasMedidas;
   }
 
 /* Crea una nueva fila en la tabla de medidas correspondiente a la ciudad ciudad con los valores del array valores
@@ -24,7 +24,7 @@ class centralMedidas{
 
     insertarMedidas(ciudad,valores){
 
-        for(let fila of this._medidas){
+        for(let fila of this.medidas){
             if(fila[0]==ciudad){
                 console.log("La ciudad ya existe.");
                 return false;
@@ -46,7 +46,7 @@ class centralMedidas{
     falso si no (si la ciudad ya existe). */
 
     insertaAleatorio(ciudad){
-        for(let fila of this._medidas){
+        for(let fila of this.medidas){
             if(fila[0]==ciudad){
                 console.log("La ciudad ya existe.");
                 return false;
@@ -67,7 +67,7 @@ class centralMedidas{
     mes */
 
     mediaMedia(ciudad){
-      for(let fila of this._medidas){
+      for(let fila of this.medidas){
             if(fila[0]===ciudad){
                 let valores=fila[1];
                 let suma = 0;
@@ -88,7 +88,7 @@ class centralMedidas{
     mes */
 
     mediaMedidasTotal(){
-        if(this._medidas === 0){
+        if(this.medidas === 0){
             console.log("No hay medidas en la tabla");
             return null;
         }
@@ -96,7 +96,7 @@ class centralMedidas{
         let sumaTotal=0;
         let contador=0;
 
-        for(let fila of this._medidas){
+        for(let fila of this.medidas){
             let valores=fila[1];
             for(let i=0;i<valores.lenght;i++){
                 sumaTotal = sumaTotal+valores[i];
@@ -115,6 +115,19 @@ class centralMedidas{
     (pues la ciudad no existe). */
 
     eliminaCiudad(ciudad){
+        
+        let ciudadEliminada=prompt("Que ciudad deseas eliminar: ");
+        for(let i=0;i<this._medidas.length;i++){
+            if(this._medidas==ciudadEliminada){
+                this._medidas.splice(i,1);
+                console.log("Ciudad: "+ciudadEliminada+" Eliminada");
+
+            }
+            return true;
+        }
+
+        console.log("Ciudad: "+ciudad+" no encontrada.")
+        return false;
 
         
     }
@@ -122,7 +135,11 @@ class centralMedidas{
     /* Se muestran por consola las medidas correspondientes a cada
     ciudad. */
 
-    toConsole() {}
+    toConsole() {
+        if(this._medidas){
+            
+        }
+    }
     
     
 
