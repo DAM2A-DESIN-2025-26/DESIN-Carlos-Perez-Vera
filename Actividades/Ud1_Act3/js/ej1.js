@@ -136,7 +136,11 @@ class centralMedidas{
     ciudad. */
 
     toConsole() {
-        if(this._medidas){
+        if(this._medidas.lenght === 0){
+            console.log("No hay datos para mostrar");
+
+        }
+        for(let fila of this.medidas){
             
         }
     }
