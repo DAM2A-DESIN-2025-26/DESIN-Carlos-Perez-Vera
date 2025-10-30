@@ -154,8 +154,19 @@ class CentralMedidas{
       
     }
   }
-    
-    
-    
+     
 }
+let tabla = new CentralMedidas();
+
+tabla.insertaAleatorio("Madrid");
+tabla.insertaAleatorio("Cádiz");
+tabla.insertaAleatorio("Valencia");
+
+tabla.toConsole();
+
+tabla.mediaMedia("Madrid");
+tabla.mediaMedidasTotal();
+
+tabla.eliminaCiudad("Cádiz");
+tabla.toConsole();
 
