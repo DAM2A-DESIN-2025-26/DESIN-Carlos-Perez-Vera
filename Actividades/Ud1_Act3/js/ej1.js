@@ -2,7 +2,7 @@
 /* Contiene una tabla de enteros correspondientes a las medidas tomadas durante un mes en distintas ciudades. La primera columna almacenará el nombre de la ciudad.
     Inicialmente el array está vacío. */
 
-class CentralMedidas{
+export default class CentralMedidas{
     
   
     constructor() {
@@ -39,6 +39,12 @@ class CentralMedidas{
         this._medidas.push([ciudad, valores])
             console.log("Medidas añadidas para " + ciudad);
             return true;
+    }
+
+    insertarMedidas2(){
+        for(let i = 0; i< this._medidas.length;i++){
+            
+        }
     }
     
 
