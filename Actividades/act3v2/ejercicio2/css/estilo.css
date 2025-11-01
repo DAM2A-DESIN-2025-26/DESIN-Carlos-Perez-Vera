@@ -1,0 +1,97 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+}
+
+label {
+    width: 50px;
+    padding-right: 40px;
+    padding-left: 5px;
+}
+
+div button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 10px;
+}
+
+/* TABLA */
+#tabla-medidas {
+  margin-top: 15px;
+  font-family: Arial, sans-serif;
+}
+
+#tabla-medidas table {
+  border-collapse: separate;
+  border-spacing: 2px;
+  border: 3px solid #333; /* Borde exterior */
+  width: 100%;
+  max-width: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+
+#tabla-medidas th,
+#tabla-medidas td {
+  border: none;
+  padding: 2px 4px;
+  text-align: center;
+}
+
+/* Cabecera (fila superior con los días y la media) */
+#tabla-medidas thead {
+  background-color: #e7e7d3;
+  font-weight: bold;
+}
+
+/* Nombre de ciudad */
+#tabla-medidas td:first-child {
+  background-color: #e7e7d3;
+}
+
+/* Media */
+#tabla-medidas td:last-child,
+#tabla-medidas th:last-child {
+  background-color: #e8e5a6;
+}
+
+/* ERRORES*/
+#errores, #temperatura-media {
+  margin-top: 15px;
+}
+
+#errores .error {
+  background-color: #f8d7da; 
+  border: 3px solid red;     
+  color: darkred;           
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  font-family: sans-serif;
+}
+
+/* TEMPERATURA MEDIA */
+#temperatura-media {
+  display: none;
+  background-color: #b9d0fa; 
+  border: 3px solid #0066ff;     
+  color: #0066ff;          
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  font-family: sans-serif;
+}

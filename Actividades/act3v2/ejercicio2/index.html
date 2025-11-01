@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/central_medidas_prueba.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Formulario para añadir nuevas ciudades -->
+    <form id="miFormulario">
+        <h2>Control de temperaturas</h2>
+        <div id="ciudad">
+            <label>Ciudad</label>
+            <input type="text" name="ciudad" id="ciudad">
+        </div>
+        <div id="medidas">
+            <label>Medidas</label>            
+            <textarea name="medidas" id="medidas"></textarea>
+        </div>
+        <!-- Al pulsar un boton el valor medidas se borrará -->
+        <div>
+            <input type="radio" name="modo" value="manual">
+            <label>Manual</label>
+            <input type="radio" name="modo" value="automatico">
+            <label>Aleatorio</label>
+        </div>
+        <div>
+            <button type="button" id="guardar">Guardar</button>
+            <button type="button" id="borrar">Borrar</button>
+        </div>
+    </form>
+
+    <div id="tabla-medidas"></div>
+
+    <div id="temperatura-media"></div>
+
+    <div id="errores"></div>    
+</body>
+</html>
