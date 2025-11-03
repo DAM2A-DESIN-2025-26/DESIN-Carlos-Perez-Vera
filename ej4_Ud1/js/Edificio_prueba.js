@@ -1,6 +1,8 @@
-var edificio1 = new Edificio("Calle Melancolia",);
+let edificio1 = new Edificio();
 
-edificio1.agregarPlantasyPuertas(2,3);
-console.warn("Nuevos propietarios...");
+edificio1.agregarPlantasyPuertas();
+edificio1.agregarPropietario();
+edificio1.agregarPropietario();
 
-edificio1.imprimePLantas();
+console.log("PROPIETARIOS");
+edificio1.imprimePlantas();

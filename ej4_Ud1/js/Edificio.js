@@ -19,10 +19,10 @@ class Edificio{
     }
 
 
-    agregarPlantasyPuertas(plantas,puertas){
+    agregarPlantasyPuertas(){
          
-         planta = parseInt(prompt("Cual es su planta?"));
-        puerta = parseInt(prompt("Y su puerta?"));
+        let planta = parseInt(prompt("Cual es su planta?"));
+        let puerta = parseInt(prompt("Y su puerta?"));
 
         //crear plantas y puertas sin propietario:
         for(let i=0; i<this.#plantas;i++){
@@ -36,30 +36,36 @@ class Edificio{
     }
     } 
 
-    agregarPropietario(nombre,planta,puerta){
-       
-       
+    agregarPropietario(){
+        let planta = parseInt(prompt("Cual es la planta?"));
+        let puerta = parseInt(prompt("Cual es su puerta?"));
+         nombre=(promt("Cual es el nombre del propietario?"));
+
+        if(planta < 0 || planta > this.#plantas.length){
+            console.log("La planta no existe");
+            return;
         }
-         nombre=promt("Cual es el nombre del propietario?");
+
+        if(puerta < 0 || puerta < this.#plantas[planta].length){
+            console.log("La puerta no existe");
+            return;
+        }
+
+        this.#plantas[planta],[puerta] = nombre;
+        console.log("El vecino: "+nombre+" vive en la planta nº "+planta+" y en la puerta nº: "+puerta)
+
         
     }
     
     imprimePLantas(){
-        if (this.#edificio.length === 0) {
-      console.log("No hay datos para mostrar.");
-      return;
-    }
-
-    for (let fila of this.#edificio) {
-      let planta = fila[0];
-      let puerta = fila[1];
-      let nombre = fila[2]
-      console.log("Planta: " + getComputedS);
-      console.log("Puerta: " + puerta.join(", "));
-      console.log("El propietario es: "+nombre.join(", "));
-      console.log("\n");
-      
-    }
+       for(let i =0; i < this.#plantas.lenght; i ++){
+            for(let j = 0 ; j<this.#plantas[i].lenght;j++){
+                let propietario = this.#plantas[i][j];
+                if(propietario===""){
+                    propietario="Vacio";
+                }
+            }
+       }
   
     }
 
