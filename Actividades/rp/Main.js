@@ -12,7 +12,7 @@ const media = document.getElementById("mediaGlobal")
 const error = document.getElementById("error")
 
 //instanciar el registroVentas
-const registroVentas = new RegistroVentas;
+const ve = new Reg;
 
 //variable  localStorage
 const datosGuardados = localStorage.getItem("ventas");

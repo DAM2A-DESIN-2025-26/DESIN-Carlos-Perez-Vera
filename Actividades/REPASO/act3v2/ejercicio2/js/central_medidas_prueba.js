@@ -54,7 +54,7 @@ ciudad.addEventListener('input', () => {
 
 
 /* Radios */
-radios.forEach(radio => { // Para que cada vez que cambies el modo "reinicie" el bucle
+radios.forEach(radio => { //cada vez que cambias el modo "reinicia" el bucle
   radio.addEventListener('change', () => { // Deseleccionar un elemento que se ha modificado
 
     medidas.value = ''; // Borrar el valor de medidas

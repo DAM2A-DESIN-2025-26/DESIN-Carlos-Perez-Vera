@@ -1,5 +1,5 @@
 
-class RegistroVentas {
+class Ve {
     #ventas;
 
     constructor() {
