@@ -1,5 +1,5 @@
 
-export class CentralMedidas {
+ class CentralMedidas {
     /*
     Contiene una tabla de enteros correspondientes a las medidas
     tomadas durante un mes en distintas ciudades. La primera
