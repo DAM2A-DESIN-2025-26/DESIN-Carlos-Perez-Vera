@@ -104,7 +104,7 @@ export class CentralMedidas {
         const tabla = document.createElement("table");
 
         // Crear cabecera
-        const thead = document.createElement("thead");
+        const thead = document.createElement("thread");
         const filaCabecera = document.createElement("tr");
 
         // Cabecera (fila 0)
