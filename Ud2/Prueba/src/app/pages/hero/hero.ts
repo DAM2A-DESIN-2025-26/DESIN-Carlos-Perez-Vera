@@ -1,4 +1,7 @@
-import { Component,signal } from "@angular/core";
+import { Component,computed,signal } from "@angular/core";
+
+
+
 @Component({
   templateUrl: './hero.html',
 
@@ -7,7 +10,7 @@ export class Hero {
 name = signal('Carlos');
 age = signal('30');
 
-//heroDescription= computed(() => `${this.name()} - ${this.age()} `);
+heroDescription= computed(() => `${this.name()} - ${this.age()} `);
 getHeroDescription(){
   return `${this.name()}  ${this.age()} `;
 }
