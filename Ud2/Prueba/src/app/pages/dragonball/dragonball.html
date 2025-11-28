@@ -1,9 +1,41 @@
 <h1>Página de dragon ball</h1>
 
-<ul>
-  @for (personaje of personaje(); track personaje.id) {
-    @if (personaje.power>5000) {
-      <li>{{personaje.name}} {{personaje.power}}</li>
+<div class="row">
+  <div class="col-12 col-md-6 mt-2">
+    <h3 class="mt-2">{{name()}}</h3>
+     <input
+     class="form-control mx-2 mt-2"
+     type="text" placeholder="Nombre"
+     [value]="name()"
+     (input)="name.set(textName.value)"
+     #textName
+     />
+     <h3 class="mt-2">{{power()}}</h3>
+    <input
+    class="form-control mx-2 mt-2"
+    type="number" placeholder="Poder"
+    [value]="name()"
+    (input)="power.set(textPower.valueAsNumber)"
+    #textPower
+    />
+
+  </div>
+  <div class="col-12 col-md-6 mt-2">
+  <ul>
+    @for (personaje of personaje(); track personaje.id) {
+    @if (personaje.power>1000) {
+      <li>{{personaje.name}} ({{personaje.power}})</li>
     }
-  }
-</ul>
+    }
+  </ul>
+
+  </div>
+
+
+
+</div>
+
+<button [disabled]="" (click)="pintarValores()" class="btn btn-primary">Añadir</button>
+
+
+
