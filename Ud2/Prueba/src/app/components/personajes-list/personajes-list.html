@@ -1,0 +1,9 @@
+<p>personajes-list works!</p>
+
+<ul>
+    @for (personaje of personajes(); track personaje.id) {
+    @if (personaje.power>1000) {
+      <li>{{personaje.name}} ({{personaje.power}})</li>
+    }
+    }
+  </ul>
