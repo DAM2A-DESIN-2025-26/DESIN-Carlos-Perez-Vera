@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { DragonballService } from './../../services/dragonball.service';
+import { Component, inject, signal } from '@angular/core';
 import { PersonajesList } from '../../components/personajes-list/personajes-list';
 import { PersonajeAdd } from '../../components/personaje-add/personaje-add';
 
@@ -17,20 +18,11 @@ export interface Personaje{
 })
 export class DragonballSuper {
 
-  name = signal('Goku');
-  power = signal(1500);
+ 
 
-  agregarPersonaje( personaje: Personaje ){
-    this.personaje.update( personajes => [...personajes, personaje] );
-  }
+  DragonballService = inject(DragonballService);
 
-  personaje= signal <Personaje[]>(
-    [
-      /* {id:1, name:'Goku', power:9900},
-      {id:2, name:'Pikachu', power:7000}, */
-      {id:3, name:'Piccolo', power:4000},
-    ]
-  )
+
 
 
 
