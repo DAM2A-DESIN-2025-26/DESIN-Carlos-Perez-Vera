@@ -6,7 +6,7 @@ import { RouterOutlet, ɵEmptyOutletComponent } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ɵEmptyOutletComponent],
+  imports: [RouterOutlet,SamrtTrackNavbar],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

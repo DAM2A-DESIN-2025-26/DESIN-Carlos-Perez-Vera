@@ -1,1 +1,42 @@
-<p>form-usuario works!</p>
+<h2>Formulario de usuario</h2>
+
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <label>
+    DNI:
+    <input name="dni" [(ngModel)]="usuario.dni" required />
+  </label>
+  <br />
+
+  <label>
+    Nombre:
+    <input name="nombre" [(ngModel)]="usuario.nombre" required />
+  </label>
+  <br />
+
+  <label>
+    Apellidos:
+    <input name="apellidos" [(ngModel)]="usuario.apellidos" required />
+  </label>
+  <br />
+
+  <label>
+    Email:
+    <input type="email" name="email" [(ngModel)]="usuario.email" />
+  </label>
+  <br />
+
+  <label>
+    Teléfono:
+    <input name="telefono" [(ngModel)]="usuario.telefono" />
+  </label>
+  <br />
+
+  <label>
+    Fecha de nacimiento:
+    <input type="date" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento" />
+  </label>
+  <br /><br />
+
+  <button type="submit">Guardar</button>
+  <a routerLink="/usuarios">Cancelar</a>
+</form>

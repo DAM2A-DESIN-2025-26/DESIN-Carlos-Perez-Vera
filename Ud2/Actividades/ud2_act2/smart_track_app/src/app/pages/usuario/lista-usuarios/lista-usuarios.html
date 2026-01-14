@@ -1,1 +1,18 @@
-<p>lista-usuarios works!</p>
+<h2>Listado de usuarios</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of usuarios">
+      <td>{{ u.dni }}</td>
+      <td>{{ u.nombre }}</td>
+      <td>{{ u.apellidos }}</td>
+    </tr>
+  </tbody>
+</table>
