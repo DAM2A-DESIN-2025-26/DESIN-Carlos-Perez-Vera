@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './form-usuario.html',
   styleUrl: './form-usuario.scss',
 })
-export class FormUsuario {
+export class FormUsuarioComponent {
 
 }
