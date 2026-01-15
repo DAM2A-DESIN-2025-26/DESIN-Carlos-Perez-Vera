@@ -1,0 +1,22 @@
+.navbar {
+    text-align: center;
+    font-size: 40px;
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.navbar a.activo {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}

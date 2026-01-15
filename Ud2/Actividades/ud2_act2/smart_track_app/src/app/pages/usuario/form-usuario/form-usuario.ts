@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { UserService, User } from '../../../services/user';
 
 @Component({
   selector: 'app-form-usuario',
@@ -9,19 +10,47 @@ import { RouterLink } from '@angular/router';
   templateUrl: './form-usuario.html',
   styleUrl: './form-usuario.scss',
 })
-export class FormUsuarioComponent {
+export class FormUsuarioComponent implements OnInit {
 
-  usuario = {
+  usuario: User = {
     dni: '',
     nombre: '',
     apellidos: '',
     email: '',
     telefono: '',
-    fechaNacimiento: '',
+    // fechaNacimiento: '',
   };
 
+  private dni?: string;
+
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    this.dni = this.route.snapshot.paramMap.get('dni') ?? undefined;
+
+    if (this.dni) {
+      this.userService.getUsuario(this.dni).subscribe({
+        next: (u) => (this.usuario = u),
+        error: (err) => console.error('Error cargando usuario', err),
+      });
+    }
+  }
+
   onSubmit() {
-    console.log('Usuario guardado', this.usuario);
-    //Llamada al servicio
+    if (this.dni) {
+      this.userService.updateUsuario(this.dni, this.usuario).subscribe({
+        next: () => this.router.navigate(['/usuarios']),
+        error: (err) => console.error('Error actualizando usuario', err),
+      });
+    } else {
+      this.userService.createUsuario(this.usuario).subscribe({
+        next: () => this.router.navigate(['/usuarios']),
+        error: (err) => console.error('Error guardando usuario', err),
+      });
+    }
   }
 }

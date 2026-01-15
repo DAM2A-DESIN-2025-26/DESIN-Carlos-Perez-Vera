@@ -1,0 +1,49 @@
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+form {
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.25rem 0.4rem;
+  margin-top: 0.15rem;
+  box-sizing: border-box;
+}
+
+button[type='submit'] {
+  margin-top: 0.8rem;
+  padding: 0.3rem 0.9rem;
+  border: 1px solid #444;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+button[type='submit']:hover {
+  background-color: #43a047;
+}
+
+a[routerLink] {
+  margin-left: 0.8rem;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a[routerLink]:hover {
+  text-decoration: underline;
+}
+
+.page-container {
+  max-width: 900px;      
+  margin: 2rem auto;     
+}

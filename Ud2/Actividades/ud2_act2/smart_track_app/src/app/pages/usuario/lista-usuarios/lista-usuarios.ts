@@ -1,25 +1,24 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-
-interface Usuario {
-  dni: string;
-  nombre: string;
-  apellidos: string;
-}
+import { Component, OnInit } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { UserService, User } from '../../../services/user';
 
 @Component({
   selector: 'app-lista-usuarios',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, NgIf, RouterLink],
   templateUrl: './lista-usuarios.html',
   styleUrl: './lista-usuarios.scss',
 })
-export class ListaUsuariosComponent {
+export class ListaUsuariosComponent implements OnInit {
+  usuarios: User[] = [];
 
-  usuarios: Usuario[] = [
-    { dni: '12345678A', nombre: 'Ana', apellidos: 'García López' },
-    { dni: '23456789B', nombre: 'Luis', apellidos: 'Pérez Díaz' },
-    { dni: '34567890C', nombre: 'Marta', apellidos: 'Sánchez Ruiz' },
-  ];
+  constructor(private userService: UserService) {}
 
+  ngOnInit(): void {
+    this.userService.getUsuarios().subscribe({
+      next: (data) => (this.usuarios = data),
+      error: (err) => console.error('Error cargando usuarios', err),
+    });
+  }
 }

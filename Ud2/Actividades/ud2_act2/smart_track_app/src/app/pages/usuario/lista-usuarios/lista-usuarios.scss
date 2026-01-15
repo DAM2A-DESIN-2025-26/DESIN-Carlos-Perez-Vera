@@ -1,0 +1,58 @@
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+button[routerLink] {
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #444;
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+button[routerLink]:hover {
+  background-color: #e0e0e0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 900px;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tbody tr:hover {
+  background-color: #eef5ff;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.page-container {
+  max-width: 900px;      
+  margin: 2rem auto;     
+}

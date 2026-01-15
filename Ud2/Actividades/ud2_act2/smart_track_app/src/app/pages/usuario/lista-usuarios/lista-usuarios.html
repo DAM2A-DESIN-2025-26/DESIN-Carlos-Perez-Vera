@@ -1,4 +1,7 @@
+<div class="page-container">
 <h2>Listado de usuarios</h2>
+
+<button routerLink="/usuarios/nuevo">Nuevo usuario</button>
 
 <table>
   <thead>
@@ -6,6 +9,7 @@
       <th>DNI</th>
       <th>Nombre</th>
       <th>Apellidos</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +17,14 @@
       <td>{{ u.dni }}</td>
       <td>{{ u.nombre }}</td>
       <td>{{ u.apellidos }}</td>
+      <td>
+        <a [routerLink]="['/usuarios/editar', u.dni]">Editar</a>
+
+      </td>
+    </tr>
+    <tr *ngIf="usuarios.length === 0">
+      <td colspan="4">No hay usuarios todavía.</td>
     </tr>
   </tbody>
 </table>
+</div>
