@@ -1,0 +1,14 @@
+ion-card {
+  margin: 16px 0;
+}
+
+ion-grid {
+  ion-card {
+    cursor: pointer;
+    
+    ion-icon {
+      color: #667eea;
+      margin: 20px 0;
+    }
+  }
+}

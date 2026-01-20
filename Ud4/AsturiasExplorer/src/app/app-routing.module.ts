@@ -13,15 +13,15 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadComponent: () => import('./pages/inicio/inicio.page').then( m => m.InicioPage)
   },
   {
     path: 'rutas',
-    loadChildren: () => import('./pages/rutas/rutas.module').then( m => m.RutasPageModule)
+    loadComponent: () => import('./pages/rutas/rutas.page').then( m => m.RutasPage)
   },
   {
     path: 'gastro',
-    loadChildren: () => import('./pages/gastro/gastro.module').then( m => m.GastroPageModule)
+    loadComponent: () => import('./pages/gastro/gastro.page').then( m => m.GastroPage)
   },
 ];
 

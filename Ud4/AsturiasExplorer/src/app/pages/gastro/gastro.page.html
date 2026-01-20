@@ -1,13 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>gastro</ion-title>
+    <ion-title>Gastronomía de Asturias</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">gastro</ion-title>
+      <ion-title size="large">Gastronomía de Asturias</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card *ngFor="let gastro of gastronomias">
+    <ion-img [src]="gastro.imagen" alt="{{ gastro.nombre }}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ gastro.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ gastro.tipo }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ gastro.descripcion }}</p>
+      <p>
+        <strong>Especialidad:</strong> {{ gastro.especialidad }}
+      </p>
+      <ion-button expand="block" color="primary">
+        {{ gastro.botton }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
