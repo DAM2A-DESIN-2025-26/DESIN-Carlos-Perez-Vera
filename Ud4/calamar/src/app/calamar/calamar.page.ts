@@ -15,6 +15,7 @@ import {
   IonMenuButton,
   IonTitle,
   IonContent,
+  IonButton,
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -39,10 +40,16 @@ import {
     IonMenuButton,
     IonTitle,
     IonContent,
+    IonButton,
   ],
 })
 export class CalamarPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  async onOpenModal() {
+    // Sustituto temporal del ModalController para que no falle la app
+    alert('Aquí se debería abrir el modal Info');
+  }
 }
