@@ -23,24 +23,19 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/perfil/perfil.page').then(m => m.PerfilPage),
         children: [
           {
+            path: '',
+            redirectTo: 'configuracion',
+            pathMatch: 'full',
+          },
+          {
             path: 'configuracion',
             loadComponent: () => import('./dashboard/perfil/configuracion/configuracion.page').then(m => m.ConfiguracionPage)
           },
           {
             path: 'estadisticas',
             loadComponent: () => import('./dashboard/perfil/estadisticas/estadisticas.page').then(m => m.EstadisticasPage)
-          },
-          {
-            path: '',
-            redirectTo: 'configuracion',
-            pathMatch: 'full',
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: 'juegos',
-        pathMatch: 'full',
       }
     ]
   },
