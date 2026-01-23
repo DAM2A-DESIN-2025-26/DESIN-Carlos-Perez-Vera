@@ -1,10 +1,48 @@
-<ion-header collapse="condense">
+<ion-header>
   <ion-toolbar>
-    <ion-title size="large">Configuración</ion-title>
+    <ion-title>Configuración</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volverPerfil()">Volver Perfil</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Configuración</h2>
-  <p>Página de configuración (alerts aquí después).</p>
+  <form [formGroup]="formPerfil" (ngSubmit)="guardarPerfil()">
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input formControlName="nombre" placeholder="Tu nombre"></ion-input>
+      @if (formPerfil.get('nombre')?.invalid && formPerfil.get('nombre')?.touched) {
+        <ion-chip color="danger">Mín 3 letras</ion-chip>
+      }
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="email" formControlName="email" placeholder="email@ejemplo.com"></ion-input>
+      @if (formPerfil.get('email')?.invalid && formPerfil.get('email')?.touched) {
+        <ion-chip color="danger">Email inválido</ion-chip>
+      }
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Edad</ion-label>
+      <ion-input type="number" formControlName="edad" placeholder="13-99"></ion-input>
+      @if (formPerfil.get('edad')?.invalid && formPerfil.get('edad')?.touched) {
+        <ion-chip color="danger">13-99 años</ion-chip>
+      }
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Notificaciones</ion-label>
+      <ion-toggle formControlName="notificaciones"></ion-toggle>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" [disabled]="formPerfil.invalid">
+      Guardar Perfil
+    </ion-button>
+  </form>
+
+  <ion-button expand="block" (click)="activarNotificaciones()">Activar Notificaciones</ion-button>
+  <ion-button expand="block" fill="clear" (click)="normasUso()">Normas de Uso</ion-button>
 </ion-content>

@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Detalle Juego</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/dashboard/juegos">Volver</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="irTienda()">Ir Tienda</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="juego; else noJuego">
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>{{ juego.titulo }}</ion-card-title>
+        <ion-card-subtitle>{{ juego.plataforma }} | {{ juego.genero }}</ion-card-subtitle>
+        <p><strong>Precio:</strong> {{ juego.precio }}€</p>
+        <p><strong>Estado:</strong> {{ juego.popular ? 'Popular' : 'Normal' }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ng-template #noJuego>
+    <p>No se encontró el juego</p>
+  </ng-template>
+</ion-content>

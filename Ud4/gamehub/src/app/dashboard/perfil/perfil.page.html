@@ -4,12 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-button expand="block" routerLink="/dashboard/perfil/configuracion">
-    Configuración
-  </ion-button>
-  <ion-button expand="block" routerLink="/dashboard/perfil/estadisticas">
-    Estadísticas
-  </ion-button>
+<ion-content>
+  <ion-list>
+    <ion-item routerLink="/dashboard/perfil/configuracion">Configuración</ion-item>
+    <ion-item routerLink="/dashboard/perfil/estadisticas">Estadísticas</ion-item>
+  </ion-list>
   <ion-router-outlet></ion-router-outlet>
 </ion-content>

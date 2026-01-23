@@ -36,11 +36,11 @@ export const routes: Routes = [
             loadComponent: () => import('./dashboard/perfil/estadisticas/estadisticas.page').then(m => m.EstadisticasPage)
           }
         ]
+      },
+      {
+        path: 'juego-detalle/:id',
+loadComponent: () => import('./dashboard/juego-detalle/juego-detalle.page').then(m => m.JuegoDetallePage)
       }
     ]
-  },
-  {
-    path: 'juego-detalle/:id',
-    loadComponent: () => import('./juego-detalle/juego-detalle.page').then(m => m.JuegoDetallePage)
-  },
+  }
 ];

@@ -1,10 +1,27 @@
-<ion-header collapse="condense">
+<ion-header>
   <ion-toolbar>
-    <ion-title size="large">Juegos</ion-title>
+    <ion-title>Juegos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2>Listado de juegos </h2>
-  <p>cards con botones.</p>
+<ion-content>
+  <ion-list>
+    @for (juego of juegos; track juego.id) {
+      <ion-item>
+        <ion-chip color="{{juego.popular ? 'success' : 'medium'}}" slot="end">
+          <ion-label>{{juego.popular ? 'Popular' : 'Normal'}}</ion-label>
+        </ion-chip>
+        <ion-title>{{juego.titulo}}</ion-title>
+        <ion-note slot="end">
+          {{juego.plataforma}} | {{juego.genero}} | ${{juego.precio}}
+        </ion-note>
+        <ion-button fill="clear" routerLink="/dashboard/juego-detalle/{{juego.id}}" slot="end">
+          Ver detalle
+        </ion-button>
+        <ion-button fill="clear" (click)="abrirVistaRapida(juego)" slot="end">
+          Vista rápida
+        </ion-button>
+      </ion-item>
+    }
+  </ion-list>
 </ion-content>
