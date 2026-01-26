@@ -1,0 +1,7 @@
+{
+  "name": "gamehub2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
