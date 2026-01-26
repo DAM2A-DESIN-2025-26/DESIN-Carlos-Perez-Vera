@@ -8,7 +8,9 @@ import {
   IonItem, 
   IonIcon, 
   IonLabel, 
-  IonRouterOutlet 
+  IonRouterOutlet,
+  IonTabBar, 
+  IonTabButton
 } from '@ionic/angular/standalone';
 
 @Component({
@@ -23,7 +25,10 @@ import {
     IonItem,
     IonIcon,
     IonLabel,
-    IonRouterOutlet
+    IonRouterOutlet,
+    IonTabBar, 
+    IonTabButton
+    
   ],
   standalone: true
 })

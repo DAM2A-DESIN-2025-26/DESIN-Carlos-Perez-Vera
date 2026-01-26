@@ -3,11 +3,12 @@ import {
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonCard, IonCardContent, IonCardTitle, IonCardSubtitle,
   IonButton, IonButtons, IonChip, IonIcon,
-  IonList, IonItem, IonLabel, IonNote
+  IonList, IonItem, IonLabel, IonNote,IonMenuButton
 } from '@ionic/angular/standalone';
-import { CommonModule } from '@angular/common';  // ← Solo CommonModule
-import { RouterLink } from '@angular/router';  // ← RouterLink aquí
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular/standalone';
 
 interface Juego {
   id: number;
@@ -28,21 +29,29 @@ interface Juego {
     IonCard, IonCardContent, IonCardTitle, IonCardSubtitle,
     IonButton, IonButtons, IonChip, IonIcon,
     IonList, IonItem, IonLabel, IonNote,
-    RouterLink  // ← OK ahora
+    RouterLink,IonMenuButton
+    // NO ModalController aquí
   ],
 })
 export class JuegosPage implements OnInit {
-  juegos: Juego[] = [ /* tus 5 juegos */ ];
+  juegos: Juego[] = [ /* tu array ok */ ];
   juegosFiltrados: Juego[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private modalCtrl: ModalController  // ← Service por DI, ok
+  ) {}
 
   ngOnInit() {
     this.juegosFiltrados = [...this.juegos];
-    // Filtro state igual...
   }
 
-  abrirVistaRapida(juego: Juego) {
-    console.log('Modal con:', juego);
+  async abrirVistaRapida(juego: Juego) {
+    const { VistaRapidaPage } = await import('./vista-rapida/vista-rapida.page');
+    const modal = await this.modalCtrl.create({
+      component: VistaRapidaPage,
+      componentProps: { juego }
+    });
+    await modal.present();
   }
 }

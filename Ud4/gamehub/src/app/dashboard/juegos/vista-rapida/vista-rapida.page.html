@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{juego.titulo}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <h2>Precio: ${{juego.precio}}</h2>
+      <ion-chip color="{{juego.popular ? 'success' : 'medium'}}">
+        <ion-label>{{juego.popular ? 'Popular' : 'Normal'}}</ion-label>
+      </ion-chip>
+      <ion-button expand="block" (click)="verEnTienda()" color="primary">
+        Ver en tienda
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
