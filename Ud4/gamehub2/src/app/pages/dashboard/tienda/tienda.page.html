@@ -1,13 +1,48 @@
-<ion-header [translucent]="true">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tienda</ion-title>
+  </ion-toolbar>
+
   <ion-toolbar>
-    <ion-title>tienda</ion-title>
+    <ion-segment value="Todos" (ionChange)="cambiarFiltro($event)" scrollable="true">
+      <ion-segment-button value="Todos">
+        <ion-label>Todos</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Switch">
+        <ion-label>Switch</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="PS5">
+        <ion-label>PS5</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Xbox">
+        <ion-label>Xbox</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="PC">
+        <ion-label>PC</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">tienda</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    @for (juego of juegosFiltrados; track juego.id) {
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="juego.imagen" />
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ juego.titulo }}</h2>
+          <p>{{ juego.plataforma }}</p>
+        </ion-label>
+      </ion-item>
+    } @empty {
+      <ion-item>
+        <ion-label>No hay juegos para esta plataforma</ion-label>
+      </ion-item>
+    }
+  </ion-list>
 </ion-content>

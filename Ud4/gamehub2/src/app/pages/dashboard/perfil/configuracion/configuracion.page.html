@@ -1,13 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>configuracion</ion-title>
+    <ion-title>Configuración de Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">configuracion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="miFormulario" (ngSubmit)="guardarPerfil()">
+    <ion-list>
+      <ion-item>
+        <ion-input label="Nombre" labelPlacement="floating" formControlName="nombre" placeholder="Tu nombre"></ion-input>
+      </ion-item>
+      @if (miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched) {
+        <ion-text color="danger" class="ion-padding-start">
+          <small>El nombre debe tener al menos 3 caracteres.</small>
+        </ion-text>
+      }
+
+      <ion-item>
+        <ion-input label="Email" type="email" labelPlacement="floating" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Edad" type="number" labelPlacement="floating" formControlName="edad"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-toggle formControlName="notificaciones">Activar Notificaciones</ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" [disabled]="miFormulario.invalid" class="ion-margin-top">
+      Guardar Perfil
+    </ion-button>
+
+    <ion-button id="present-alert" expand="block" color="medium" fill="outline" class="ion-margin-top">
+  Restablecer Datos
+</ion-button>
+
+<ion-alert
+  trigger="present-alert"
+  header="¿Estás seguro?"
+  subHeader="Esta acción no se puede deshacer"
+  message="Se borrarán todos los cambios que no hayas guardado."
+  [buttons]="botonesAlerta"
+></ion-alert>
+
+  </form>
 </ion-content>

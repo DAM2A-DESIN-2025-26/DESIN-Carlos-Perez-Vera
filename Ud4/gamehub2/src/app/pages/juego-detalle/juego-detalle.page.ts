@@ -1,20 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { ActivatedRoute } from '@angular/router'; 
+import { 
+  IonContent, IonHeader, IonTitle, IonToolbar, 
+  IonButtons, IonBackButton, IonText 
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-juego-detalle',
   templateUrl: './juego-detalle.page.html',
-  styleUrls: ['./juego-detalle.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    IonContent, IonHeader, IonTitle, IonToolbar, 
+    IonButtons, IonBackButton, IonText
+  ]
 })
 export class JuegoDetallePage implements OnInit {
+  
+  
+  nombreJuego: string = '';
+  precioJuego: string = '';
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // Escuchamos la URL para pillar los parámetros
+    this.route.queryParams.subscribe(params => {
+      this.nombreJuego = params['nombre'];
+      this.precioJuego = params['precio'];
+    });
   }
-
 }

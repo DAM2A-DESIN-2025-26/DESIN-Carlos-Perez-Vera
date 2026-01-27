@@ -48,4 +48,12 @@ export const routes: Routes = [
     path: 'juego-detalle/:id',
     loadComponent: () => import('./pages/juego-detalle/juego-detalle.page').then( m => m.JuegoDetallePage)
   },
+  {
+    path: 'acerca-de',
+    loadComponent: () => import('./pages/acerca-de/acerca-de.page').then( m => m.AcercaDePage)
+  },
+  {
+    path: 'juego-detalle',
+    loadComponent: () => import('./pages/juego-detalle/juego-detalle.page').then( m => m.JuegoDetallePage)
+  },
 ];

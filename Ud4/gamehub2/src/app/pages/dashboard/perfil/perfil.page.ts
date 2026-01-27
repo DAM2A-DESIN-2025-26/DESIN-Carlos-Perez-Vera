@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { Component } from '@angular/core';
+import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { settingsOutline, barChartOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-perfil',
-  templateUrl: './perfil.page.html',
-  styleUrls: ['./perfil.page.scss'],
+  templateUrl: './perfil.page.html', 
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel]
 })
-export class PerfilPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+export class PerfilPage { 
+  constructor() {
+    addIcons({ settingsOutline, barChartOutline });
   }
-
 }

@@ -1,13 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>juego-detalle</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/juegos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">juego-detalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <div style="margin-top: 50px;">
+    <ion-text color="primary">
+      <h1>{{ nombreJuego }}</h1>
+    </ion-text>
+    
+    <p>Has seleccionado este increíble título.</p>
+    
+    <h2 style="margin-top: 20px;">
+      Precio: <ion-text color="success">{{ precioJuego }}€</ion-text>
+    </h2>
+  </div>
 </ion-content>

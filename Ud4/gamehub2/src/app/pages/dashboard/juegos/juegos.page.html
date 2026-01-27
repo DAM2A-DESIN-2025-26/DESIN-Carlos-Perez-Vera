@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>juegos</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catálogo de Juegos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">juegos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list lines="full">
+    @for (juego of listaDeJuegos; track juego.id) {
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img [src]="juego.imagen" [alt]="juego.titulo" />
+        </ion-thumbnail>
+
+        <ion-label>
+          <h2>{{ juego.titulo }}</h2>
+          <p>{{ juego.plataforma }} - {{ juego.genero }}</p>
+          <ion-text color="success">
+            <strong>{{ juego.precio }}€</strong>
+          </ion-text>
+        </ion-label>
+
+        <ion-buttons slot="end">
+          <ion-button (click)="abrirVistaRapida(juego)">
+            <ion-icon slot="icon-only" name="eye-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button color="primary" (click)="verDetalle(juego)">
+            <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    } @empty {
+      <div class="ion-padding ion-text-center">
+        <p>No hay juegos disponibles en este momento.</p>
+      </div>
+    }
+  </ion-list>
 </ion-content>
