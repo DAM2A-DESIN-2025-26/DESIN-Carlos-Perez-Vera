@@ -1,12 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent, 
   IonList, IonItem, IonLabel, IonThumbnail, IonImg,
-  IonRefresher, IonRefresherContent // esto para el "Pull to refresh" 
-
+  IonRefresher, IonRefresherContent,
+  IonButton, IonButtons, IonIcon 
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons'; 
+import { add } from 'ionicons/icons';
 import { RecipeService } from '../services/recipe'; 
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -15,37 +18,37 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule, 
+    RouterModule,
     IonHeader, IonToolbar, IonTitle, IonContent, 
     IonList, IonItem, IonLabel, IonThumbnail, IonImg,
-    IonRefresher, IonRefresherContent
+    IonRefresher, IonRefresherContent,
+    IonButton, IonButtons, IonIcon
   ],
 })
 export class HomePage implements OnInit {
- 
   private recipeService = inject(RecipeService);
-
-  // V guardar la lista de recetas
   public recipes: any[] = [];
 
-  constructor() {}
+  constructor() {
+    addIcons({ add });
+  }
 
   ngOnInit() {
     this.cargarRecetas();
   }
 
-  // Función para llamar al servicio
+  // --- ESTA ES LA FUNCIÓN QUE DEBES MODIFICAR ---
   cargarRecetas(event?: any) {
     this.recipeService.getRecipes().subscribe({
-      next: (res: any) => {
+      next: (res: any) => { // <--- Aquí añadimos :any
         this.recipes = res.recipes;
         console.log('Recetas cargadas:', this.recipes);
         
-        // Si la función fue llamada por el refrescador, se para
         if (event) {
           event.target.complete();
         }
       },
-      error: (err: any) => {
+      error: (err: any) => { // <--- Aquí también añadimos :any
         console.error('Error al cargar recetas', err);
         if (event) {
           event.target.complete();

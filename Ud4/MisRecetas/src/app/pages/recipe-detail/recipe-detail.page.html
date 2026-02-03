@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ recipe?.name || 'Cargando...' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (recipe) {
+    <div class="image-container">
+      <img [src]="recipe.image" [alt]="recipe.name" />
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ recipe.name }}</ion-card-title>
+        <p>Dificultad: <b>{{ recipe.difficulty }}</b></p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <h3>Ingredientes:</h3>
+        <ul>
+          @for (ing of recipe.ingredients; track $index) {
+            <li>{{ ing }}</li>
+          }
+        </ul>
+
+        <h3>Instrucciones:</h3>
+        <p>{{ recipe.instructions }}</p>
+
+        <div class="ion-padding-top">
+          <ion-button expand="block" color="tertiary" [routerLink]="['/recipe-edit', recipe.id]">
+            Editar Receta
+          </ion-button>
+          
+          <ion-button expand="block" color="danger" (click)="eliminarReceta()">
+            Eliminar Receta
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  } @else {
+    <div class="ion-text-center ion-padding">
+      <ion-spinner></ion-spinner>
+      <p>Buscando la receta...</p>
+    </div>
+  }
+</ion-content>

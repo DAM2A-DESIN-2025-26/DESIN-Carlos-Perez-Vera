@@ -1,0 +1,13 @@
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+  img {
+    width: 200px;         /* Ajusta este valor al tamaño que quieras */
+    height: 200px;        /* Mismo valor para que sea cuadrada */
+    object-fit: cover;    /* Para que la imagen no se deforme */
+    border-radius: 15px;  /* Bordes suaves */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombrita para que quede bien */
+  }
+}

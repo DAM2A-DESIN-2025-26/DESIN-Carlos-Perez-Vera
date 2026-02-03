@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir Receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="recipeForm" (ngSubmit)="guardarReceta()">
+    
+    <ion-item>
+      <ion-label position="stacked">Nombre de la receta</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Ej: Pizza Margarita"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Ingredientes</ion-label>
+      <ion-input formControlName="ingredients" type="text" placeholder="Queso, tomate..."></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tiempo (minutos)</ion-label>
+      <ion-input formControlName="prepTimeMinutes" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Instrucciones</ion-label>
+      <ion-input formControlName="instructions" type="text" placeholder="Pasos a seguir"></ion-input>
+    </ion-item>
+
+    <div class="ion-padding-top">
+      <ion-button expand="block" type="submit" [disabled]="recipeForm.invalid">
+        Guardar Receta
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>
