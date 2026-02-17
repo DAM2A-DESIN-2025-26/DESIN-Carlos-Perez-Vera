@@ -1,0 +1,35 @@
+<!-- Aqui usa dos componentes una para la lista otro para los elementos que van dentro. -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    @for (t of tareasService.tareas(); track t.id) {
+      <app-tarea-item 
+        [tarea]="t" 
+        (cambioEstado)="cambiarEstado($event)">
+      </app-tarea-item>
+    }
+  </ion-list>
+</ion-content>
+<!-- Este componente se encargará de mostrar la lista de tareas usando solo un componente. -->
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Mis Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    @for (tarea of tareasService.tareas(); track tarea.id) {
+      <ion-item>
+        <ion-label>
+          {{ tarea.title }}
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content> -->

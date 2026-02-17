@@ -1,0 +1,10 @@
+<ion-item>
+  <ion-checkbox 
+    [checked]="tarea().completed" 
+    (ionChange)="onCheckboxChange()">
+  </ion-checkbox>
+
+  <ion-label [class.completada]="tarea().completed">
+    {{ tarea().title }}
+  </ion-label>
+</ion-item>
