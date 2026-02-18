@@ -6,9 +6,12 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonButtons, // 👈 Añade esto
-  IonMenuButton // 👈 Añade esto
+  IonButtons,
+  IonMenuButton,
+  IonIcon // 👈 Añadimos IonIcon
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons'; // 👈 Importamos addIcons
+import { menuOutline } from 'ionicons/icons'; // 👈 Importamos el icono de hamburguesa
 
 @Component({
   selector: 'app-listado',
@@ -22,10 +25,14 @@ import {
     IonToolbar,
     IonButtons,
     IonMenuButton,
+    IonIcon, // 👈 Lo incluimos en los imports
     CommonModule,
     FormsModule
   ]
 })
 export class ListadoPage {
-  constructor() {}
+  constructor() {
+    // 👈 Forzamos a que el sistema reconozca el icono de la hamburguesa
+    addIcons({ menuOutline });
+  }
 }
