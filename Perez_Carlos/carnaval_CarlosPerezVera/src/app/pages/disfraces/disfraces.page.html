@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>MIS RECETAS</ion-title>
+    <ion-title>DISFRACES</ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/recipe-add">
         <ion-icon slot="icon-only" name="add"></ion-icon>
@@ -10,21 +10,21 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="cargarRecetas($event)">
+  <ion-refresher slot="fixed" (ionRefresh)="cargarDisfraces($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
-    @for (recipe of recipes; track recipe.id) {
-      <ion-item [routerLink]="['/recipe-detail', recipe.id]" button="true">
+    @for (disfraz of disfraces; track disfraz.id) {
+      <ion-item [routerLink]="['/recipe-detail', disfraz.id]" button="true">
         <ion-thumbnail slot="start">
-          <img [src]="recipe.image" [alt]="recipe.name" />
+          <img [src]="disfraz.image" [alt]="disfraz.name" />
         </ion-thumbnail>
 
         <ion-label>
-          <h2>{{ recipe.name }}</h2>
-          <p>Dificultad: <b>{{ recipe.difficulty }}</b></p>
-          <p>Tiempo total: {{ recipe.prepTimeMinutes + recipe.cookTimeMinutes }} min</p>
+          <h2>{{ disfraz.name }}</h2>
+          <p>Dificultad: <b>{{ disfraz.difficulty }}</b></p>
+          <p>Tiempo total: {{ disfraz.prepTimeMinutes + disfraz.cookTimeMinutes }} min</p>
         </ion-label>
       </ion-item>
     }
