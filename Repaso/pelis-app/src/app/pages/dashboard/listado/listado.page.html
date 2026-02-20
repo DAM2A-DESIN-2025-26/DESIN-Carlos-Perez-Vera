@@ -13,4 +13,36 @@
   <div class="ion-padding">
     <h1>Listado de Películas</h1>
   </div>
+
+  <ion-grid>
+    <ion-row>
+      @for (peli of pelisService.peliculas(); track peli.id) {
+        <ion-col size="12" size-md="6">
+          <ion-card>
+            <img [src]="peli.poster" [alt]="peli.title" style="width: 100%; height: 250px; object-fit: cover;" />
+            
+            <ion-card-header>
+              <ion-card-title>{{ peli.title }}</ion-card-title>
+            </ion-card-header>
+
+            <div class="ion-padding">
+              <ion-button fill="clear">
+                <ion-icon slot="start" name="eye-outline"></ion-icon>
+                Ver más
+              </ion-button>
+              
+              <ion-button fill="clear" color="danger" (click)="eliminarPeli(peli.id)">
+                <ion-icon slot="start" name="trash-outline"></ion-icon>
+                Borrar
+              </ion-button>
+            </div>
+          </ion-card>
+        </ion-col>
+      } @empty {
+        <ion-col size="12">
+          <p class="ion-text-center">No hay películas en la cartelera.</p>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 </ion-content>

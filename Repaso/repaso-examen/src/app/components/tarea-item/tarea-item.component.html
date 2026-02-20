@@ -1,0 +1,10 @@
+<ion-item>
+  <ion-label>
+    {{ tarea.title }}
+  </ion-label>
+  
+  <ion-checkbox 
+    [checked]="tarea.completed" 
+    (ionChange)="notificarCambio()">
+  </ion-checkbox>
+</ion-item>

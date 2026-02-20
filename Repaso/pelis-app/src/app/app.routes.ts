@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard.page',
+    redirectTo: 'dashboard/listado', // ⬇️ CAMBIO 1: Redirigimos a la sub-página 'listado' dentro de 'dashboard'
     pathMatch: 'full',
   },
   {
