@@ -1,0 +1,7 @@
+{
+  "name": "yesnoapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

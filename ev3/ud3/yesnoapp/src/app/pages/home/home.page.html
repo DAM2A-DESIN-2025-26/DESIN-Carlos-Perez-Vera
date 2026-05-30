@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>YesNoApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Aquí tu contenido -->
+   <ion-input [(ngModel)]="pregunta"label="Escribe tu pregunta"
+  label-placement="stacked"
+  placeholder="¿Debería aprender más Ionic?">></ion-input>
+  <ion-button [disabled]="pregunta.trim() === ''" (click)="obtenerRespuesta()">
+  Responder
+</ion-button>
+@if (respuesta) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Respuesta: {{ {{ respuesta.answer.toUpperCase() }} }}</ion-card-title>
+    </ion-card-header>
+    
+    <ion-card-content>
+      <img [src]="respuesta.image" alt="Respuesta" />
+      
+      <ion-button (click)="nuevaPregunta()">
+        Nueva Pregunta
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+}
+</ion-content>
+
