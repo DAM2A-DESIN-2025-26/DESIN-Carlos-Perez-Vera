@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/listado"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de Receta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (receta) {
+    <!-- Imagen grande -->
+    <img [src]="receta.image" [alt]="receta.name" style="width: 100%; height: 250px; object-fit: cover;" />
+    
+    <!-- Card con información -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ receta.name }}</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <p><strong>Dificultad:</strong> {{ receta.difficulty }}</p>
+        <p><strong>Tiempo de preparación:</strong> {{ receta.prepTimeMinutes }} min</p>
+        <p><strong>Tiempo de cocción:</strong> {{ receta.cookTimeMinutes }} min</p>
+        <p><strong>Tiempo total:</strong> {{ receta.prepTimeMinutes + receta.cookTimeMinutes }} min</p>
+        
+        @if (receta.tags && receta.tags.length > 0) {
+          <p><strong>Tags:</strong> {{ receta.tags.join(', ') }}</p>
+        }
+        
+        <!-- Ingredientes -->
+        <h3>Ingredientes</h3>
+        <ion-list>
+          @for (ingrediente of receta.ingredients; track $index) {
+            <ion-item>
+              <ion-label>{{ ingrediente }}</ion-label>
+            </ion-item>
+          }
+        </ion-list>
+        
+        <!-- Instrucciones -->
+        <h3>Instrucciones</h3>
+        <ion-list>
+          @for (instruccion of receta.instructions; track $index) {
+            <ion-item>
+              <ion-label class="ion-text-wrap">{{ $index + 1 }}. {{ instruccion }}</ion-label>
+            </ion-item>
+          }
+        </ion-list>
+        
+        <!-- Botones de acción -->
+        <ion-button expand="block" color="primary" (click)="editarReceta()">
+          Editar
+        </ion-button>
+        <ion-button expand="block" color="danger" (click)="eliminarReceta()">
+          Eliminar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  } @else {
+    <ion-card>
+      <ion-card-content>
+        Cargando receta...
+      </ion-card-content>
+    </ion-card>
+  }
+</ion-content>

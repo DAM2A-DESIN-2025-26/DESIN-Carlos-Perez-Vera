@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/listado"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ modoEdicion ? 'Editar Receta' : 'Nueva Receta' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="recetaForm" (ngSubmit)="guardarReceta()">
+    
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label position="stacked">Nombre *</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Ej: Fabada Asturiana"></ion-input>
+    </ion-item>
+    @if (recetaForm.get('name')?.invalid && recetaForm.get('name')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>El nombre es obligatorio (mínimo 3 caracteres)</small>
+      </ion-label>
+    }
+    
+    <!-- Dificultad -->
+    <ion-item>
+      <ion-label position="stacked">Dificultad *</ion-label>
+      <ion-select formControlName="difficulty" placeholder="Selecciona">
+        <ion-select-option value="Easy">Fácil</ion-select-option>
+        <ion-select-option value="Medium">Media</ion-select-option>
+        <ion-select-option value="Hard">Difícil</ion-select-option>
+      </ion-select>
+    </ion-item>
+    @if (recetaForm.get('difficulty')?.invalid && recetaForm.get('difficulty')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>La dificultad es obligatoria</small>
+      </ion-label>
+    }
+    
+    <!-- Tiempo de preparación -->
+    <ion-item>
+      <ion-label position="stacked">Tiempo de preparación (min) *</ion-label>
+      <ion-input formControlName="prepTimeMinutes" type="number" placeholder="Ej: 30"></ion-input>
+    </ion-item>
+    @if (recetaForm.get('prepTimeMinutes')?.invalid && recetaForm.get('prepTimeMinutes')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>Debe ser al menos 1 minuto</small>
+      </ion-label>
+    }
+    
+    <!-- Tiempo de cocción -->
+    <ion-item>
+      <ion-label position="stacked">Tiempo de cocción (min) *</ion-label>
+      <ion-input formControlName="cookTimeMinutes" type="number" placeholder="Ej: 60"></ion-input>
+    </ion-item>
+    @if (recetaForm.get('cookTimeMinutes')?.invalid && recetaForm.get('cookTimeMinutes')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>Debe ser 0 o mayor</small>
+      </ion-label>
+    }
+    
+    <!-- Ingredientes -->
+    <ion-item>
+      <ion-label position="stacked">Ingredientes (separados por comas) *</ion-label>
+      <ion-textarea formControlName="ingredients" rows="4" placeholder="Ej: 500g fabes, 200g chorizo, 100g panceta"></ion-textarea>
+    </ion-item>
+    @if (recetaForm.get('ingredients')?.invalid && recetaForm.get('ingredients')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>Los ingredientes son obligatorios</small>
+      </ion-label>
+    }
+    
+    <!-- Instrucciones -->
+    <ion-item>
+      <ion-label position="stacked">Instrucciones (una por línea) *</ion-label>
+      <ion-textarea formControlName="instructions" rows="6" placeholder="Paso 1: ...&#10;Paso 2: ..."></ion-textarea>
+    </ion-item>
+    @if (recetaForm.get('instructions')?.invalid && recetaForm.get('instructions')?.touched) {
+      <ion-label color="danger" class="ion-padding-start">
+        <small>Las instrucciones son obligatorias</small>
+      </ion-label>
+    }
+    
+    <!-- Botón guardar -->
+    <ion-button 
+      expand="block" 
+      type="submit" 
+      [disabled]="recetaForm.invalid"
+      class="ion-margin-top">
+      {{ modoEdicion ? 'Actualizar' : 'Guardar' }}
+    </ion-button>
+  </form>
+</ion-content>
