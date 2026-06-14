@@ -1,0 +1,32 @@
+<!-- <h1>Habilidadeds</h1>
+
+@for(h of habilidades();track h){
+    <div>
+        
+        <p>{{h.nombre}}</p>
+        <p>{{h.nivel}}</p>
+        @if(h.nivel>70){
+            <p>Experto</p>
+        }
+    </div>
+} -->
+    <div class="container mt-5">
+  <h1 class="text-center mb-4">Habilidades</h1>
+
+  <div class="row g-3">
+    @for (h of habilidades(); track h) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ h.nombre }}</h5>
+            <p class="card-text mb-2">Nivel: {{ h.nivel }}%</p>
+
+            @if (h.nivel > 70) {
+              <span class="badge text-bg-success">Experto</span>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

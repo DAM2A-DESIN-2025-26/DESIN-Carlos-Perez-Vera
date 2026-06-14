@@ -1,0 +1,137 @@
+/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+  color: #222;
+  padding-bottom: 80px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: white;
+  cursor: pointer;
+  margin-right: 6px;
+  margin-bottom: 8px;
+}
+
+button:hover {
+  background: #16213e;
+}
+
+.pagina {
+  max-width: 800px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card p:first-child {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.badge-abierta  { background: #fde68a; color: #92400e; }
+.badge-proceso  { background: #bfdbfe; color: #1e40af; }
+.badge-resuelta { background: #bbf7d0; color: #166534; }
+.badge-alta     { background: #fecaca; color: #991b1b; }
+.badge-media    { background: #fed7aa; color: #9a3412; }
+.badge-baja     { background: #d1fae5; color: #065f46; }
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.contador {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  color: #444;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+}
+
+.form-card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 24px auto;
+}
+
+.mensaje-ok {
+  background: #bbf7d0;
+  color: #166534;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+body {
+  padding-bottom: 70px;
+}
+
+.navbar .nav-link.active {
+  color: #0dcaf0 !important;
+  font-weight: bold;
+} */

@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Incidencias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-button (click)="filtrarPorEstado('todas')">Todas </ion-button>
+    <ion-button (click)="filtrarPorEstado('ABIERTA')">Abiertas </ion-button>
+    <ion-button (click)="filtrarPorEstado('EN_PROCESO')">En proceso </ion-button>
+    <ion-button (click)="filtrarPorEstado('RESUELTA')">Resuelta</ion-button>
+  </ion-toolbar>  
+    <p>Incidencias Abiertas: {{incidenciasAbiertas}}</p>
+    <ion-button [routerLink]="['/incidencia-nueva']">
+  Nueva incidencia
+</ion-button>
+    <ion-list>
+  @for(i of incidencias; track i.id){
+    <ion-item [routerLink]="['/incidencia', i.id]" button="true">
+      <ion-label>
+        <h2>{{ i.titulo }}</h2>
+        <p>Aula: {{ i.aula }}</p>
+        <p>Categoría: {{ i.categoria.nombre }}</p>
+        <p>Usuario: {{ i.usuario.nombre }}</p>
+        <p>Estado: {{ i.estado }}</p>
+        <p>Prioridad: {{ i.prioridad }}</p>
+      </ion-label>
+
+      <ion-button
+        slot="end"
+        color="danger"
+        (click)="eliminarIncidenciaDesdeBoton($event, i.id)">
+        Eliminar
+      </ion-button>
+
+      <ion-button
+        slot="end"
+        color="primary"
+        (click)="editarIncidencia($event, i.id)">
+        Editar
+      </ion-button>
+    </ion-item>
+  }
+</ion-list>
+    
+</ion-content>

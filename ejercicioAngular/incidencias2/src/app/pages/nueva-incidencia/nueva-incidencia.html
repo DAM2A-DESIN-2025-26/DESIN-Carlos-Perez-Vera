@@ -1,0 +1,60 @@
+<div class="container mt-4" style="max-width:500px">
+  <h1 class="mb-3">Nueva incidencia</h1>
+  <button class="btn btn-outline-secondary mb-4" routerLink="/incidencias">← Volver</button>
+
+  @if (mensaje()) {
+    <div class="alert alert-success">{{ mensaje() }}</div>
+  }
+
+  <div class="card shadow-sm p-4">
+    <div class="mb-3">
+      <label class="form-label">Título</label>
+      <input class="form-control" type="text" [value]="titulo()" (input)="titulo.set($any($event.target).value)" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <textarea class="form-control" [value]="descripcion()" (input)="descripcion.set($any($event.target).value)"></textarea>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Aula</label>
+      <input class="form-control" type="text" [value]="aula()" (input)="aula.set($any($event.target).value)" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Estado</label>
+      <select class="form-select" [value]="estado()" (change)="estado.set($any($event.target).value)">
+        <option value="ABIERTA">ABIERTA</option>
+        <option value="EN_PROCESO">EN_PROCESO</option>
+        <option value="CERRADA">CERRADA</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Prioridad</label>
+      <select class="form-select" [value]="prioridad()" (change)="prioridad.set($any($event.target).value)">
+        <option value="BAJA">BAJA</option>
+        <option value="MEDIA">MEDIA</option>
+        <option value="ALTA">ALTA</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Usuario</label>
+      <select class="form-select" [value]="usuarioId()" (change)="usuarioId.set(+$any($event.target).value)">
+        <option value="0">Selecciona un usuario</option>
+        @for (usuario of usuarios(); track usuario.id) {
+          <option [value]="usuario.id">{{ usuario.nombre }}</option>
+        }
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Categoría</label>
+      <select class="form-select" [value]="categoriaId()" (change)="categoriaId.set(+$any($event.target).value)">
+        <option value="0">Selecciona una categoría</option>
+        @for (categoria of categorias(); track categoria.id) {
+          <option [value]="categoria.id">{{ categoria.nombre }}</option>
+        }
+      </select>
+    </div>
+    <button class="btn btn-primary w-100" type="button" (click)="guardarIncidencia()">
+      Guardar incidencia
+    </button>
+  </div>
+</div>

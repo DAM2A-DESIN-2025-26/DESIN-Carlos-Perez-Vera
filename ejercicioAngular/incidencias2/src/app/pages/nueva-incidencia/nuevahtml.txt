@@ -1,0 +1,166 @@
+
+<h2>Nueva incidencia</h2>
+@if (mensaje()) {
+  <p>{{ mensaje() }}</p>
+}
+
+<!-- Campo título -->
+<div>
+  <!-- Etiqueta asociada al input mediante el id -->
+  <label for="titulo">Título</label>
+
+  <!--
+    [value]="titulo()" :
+    muestra en el input el valor actual de la signal titulo
+
+    (input)="titulo.set(...)" :
+    cada vez que el usuario escribe, actualizamos la signal titulo
+    con el valor del input
+  -->
+  <input
+    id="titulo"
+    type="text"
+    [value]="titulo()"
+    (input)="titulo.set($any($event.target).value)"
+  />
+</div>
+
+<!-- Campo descripción -->
+<div>
+  <label for="descripcion">Descripción</label>
+
+  <!--
+    Igual que antes, pero usando un textarea porque el texto puede ser más largo
+  -->
+  <textarea
+    id="descripcion"
+    [value]="descripcion()"
+    (input)="descripcion.set($any($event.target).value)"
+  ></textarea>
+</div>
+
+<!-- Campo aula -->
+<div>
+  <label for="aula">Aula</label>
+
+  <!--
+    Guarda el aula que escribe el usuario
+  -->
+  <input
+    id="aula"
+    type="text"
+    [value]="aula()"
+    (input)="aula.set($any($event.target).value)"
+  />
+</div>
+
+<!-- Select de estado -->
+<div>
+  <label for="estado">Estado</label>
+
+  <!--
+    [value]="estado()" :
+    marca como seleccionada la opción que tenga el valor actual de la signal estado
+
+    (change)="estado.set(...)" :
+    cuando el usuario cambia la opción, actualizamos la signal
+  -->
+  <select
+    id="estado"
+    [value]="estado()"
+    (change)="estado.set($any($event.target).value)"
+  >
+    <option value="ABIERTA">ABIERTA</option>
+    <option value="EN_PROCESO">EN_PROCESO</option>
+    <option value="CERRADA">CERRADA</option>
+  </select>
+</div>
+
+<!-- Select de prioridad -->
+<div>
+  <label for="prioridad">Prioridad</label>
+
+  <select
+    id="prioridad"
+    [value]="prioridad()"
+    (change)="prioridad.set($any($event.target).value)"
+  >
+    <option value="BAJA">BAJA</option>
+    <option value="MEDIA">MEDIA</option>
+    <option value="ALTA">ALTA</option>
+  </select>
+</div>
+
+<!-- Select de usuario -->
+<div>
+  <label for="usuario">Usuario</label>
+
+  <!--
+    Este select guarda el id del usuario seleccionado
+
+    OJO:
+    el value de un select llega como texto, pero usuarioId es number.
+    Por eso usamos + delante:
+    +$any($event.target).value
+
+    Ese + convierte el texto a número
+  -->
+  <select
+    id="usuario"
+    [value]="usuarioId()"
+    (change)="usuarioId.set(+$any($event.target).value)"
+  >
+    <!-- Opción inicial por defecto -->
+    <option value="0">Selecciona un usuario</option>
+
+    <!--
+      @for recorre el array usuarios()
+
+      usuarios() :
+      lee el valor actual de la signal usuarios
+
+      track usuario.id :
+      ayuda a Angular a identificar cada opción por su id
+    -->
+    @for (usuario of usuarios(); track usuario.id) {
+      <option [value]="usuario.id">
+        {{ usuario.nombre }}
+      </option>
+    }
+  </select>
+</div>
+
+<!-- Select de categoría -->
+<div>
+  <label for="categoria">Categoría</label>
+
+  <select
+    id="categoria"
+    [value]="categoriaId()"
+    (change)="categoriaId.set(+$any($event.target).value)"
+  >
+    <option value="0">Selecciona una categoría</option>
+
+    <!--
+      Recorremos la signal categorias para generar las opciones
+    -->
+    @for (categoria of categorias(); track categoria.id) {
+      <option [value]="categoria.id">
+        {{ categoria.nombre }}
+      </option>
+    }
+  </select>
+</div>
+
+<!-- Botón de guardar -->
+<div>
+  <!--
+    type="button" evita que el navegador intente enviar un form HTML clásico
+
+    (click)="guardarIncidencia()" :
+    cuando el usuario pulse, se ejecuta el método del componente
+  -->
+  <button type="button" (click)="guardarIncidencia()">
+    Guardar incidencia
+  </button>
+</div> */

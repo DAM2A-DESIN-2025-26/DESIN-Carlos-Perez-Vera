@@ -1,0 +1,84 @@
+<!-- <h1>Formulario de contacto</h1>
+
+<form>
+  <label for="nombre">Nombre</label>
+  <input id="nombre" type="text" (input)="nombre.set($any($event.target).value)">
+
+  <label for="email">Email</label>
+  <input id="email" type="email" (input)="email.set($any($event.target).value)">
+
+  <label for="mensaje">Mensaje</label>
+  <textarea id="mensaje" (input)="mensaje.set($any($event.target).value)"></textarea>
+
+  <button type="button" (click)="enviarFormulario()">Enviar</button>
+</form>
+
+@if (enviado() && mensaje()) {
+  <div>
+    <p>Has enviado:</p>
+    <p>Nombre: {{ nombre() }}</p>
+    <p>Email: {{ email() }}</p>
+    <p>Mensaje: {{ mensaje() }}</p>
+  </div>
+} -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h1 class="mb-4 text-center">Formulario de contacto</h1>
+
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                id="nombre"
+                type="text"
+                class="form-control"
+                (input)="nombre.set($any($event.target).value)"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                id="email"
+                type="email"
+                class="form-control"
+                (input)="email.set($any($event.target).value)"
+              >
+            </div>
+
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea
+                id="mensaje"
+                class="form-control"
+                rows="4"
+                (input)="mensaje.set($any($event.target).value)"
+              ></textarea>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              (click)="enviarFormulario()"
+            >
+              Enviar
+            </button>
+          </form>
+
+          @if (enviado() && mensaje()) {
+            <div class="alert alert-success mt-4">
+              <p class="fw-bold mb-2">Has enviado:</p>
+              <p class="mb-1">Nombre: {{ nombre() }}</p>
+              <p class="mb-1">Email: {{ email() }}</p>
+              <p class="mb-0">Mensaje: {{ mensaje() }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

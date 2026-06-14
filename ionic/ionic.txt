@@ -1,0 +1,1 @@
+ionic generate service services/incidencias

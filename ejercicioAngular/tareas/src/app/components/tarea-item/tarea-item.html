@@ -1,0 +1,14 @@
+<div class="list-group-item d-flex align-items-center">
+  <div class="form-check m-0">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [checked]="tarea.completed"
+      (change)="cambio()"
+    >
+  </div>
+
+  <h6 class="mb-0 ms-2">
+    {{ tarea.title }}
+  </h6>
+</div>

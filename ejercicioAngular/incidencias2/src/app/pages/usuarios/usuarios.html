@@ -1,0 +1,32 @@
+<!-- <div>
+  <h1>Usuarios:</h1>
+
+  @if (usuarios().length === 0) {
+    <p>Aún no hay usuarios</p>
+  }
+
+  @for (u of usuarios(); track u.id) {
+    <div [routerLink]="['/usuarios', u.id]">
+      <p>{{ u.nombre }}</p>
+      <p>{{ u.email }}</p>
+      <p>{{ u.rol }}</p>
+    </div>
+  }
+</div> -->
+<div class="container mt-4">
+  <h1 class="mb-4">Usuarios</h1>
+
+  @if (usuarios().length === 0) {
+    <p class="text-muted">Aún no hay usuarios.</p>
+  }
+
+  @for (u of usuarios(); track u.id) {
+    <div class="card mb-3 shadow-sm" style="cursor:pointer" [routerLink]="['/usuarios', u.id]">
+      <div class="card-body">
+        <h5 class="card-title">{{ u.nombre }}</h5>
+        <p class="card-text text-muted mb-1">{{ u.email }}</p>
+        <span class="badge bg-secondary">{{ u.rol }}</span>
+      </div>
+    </div>
+  }
+</div>

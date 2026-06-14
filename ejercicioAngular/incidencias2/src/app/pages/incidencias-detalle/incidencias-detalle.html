@@ -1,0 +1,41 @@
+<!-- <button routerLink="/incidencias">Volver</button>
+@if (incidencia()) {
+    <p>{{ incidencia()!.titulo }}</p>
+    <p>{{ incidencia()!.aula }}</p>
+    <p>{{ incidencia()!.categoria.nombre }}</p>
+    <p>{{ incidencia()!.estado }}</p>
+    <p>{{ incidencia()!.prioridad }}</p>
+    <p>{{ incidencia()!.usuario.nombre }}</p>
+    <p>{{ incidencia()!.descripcion }}</p>
+    <p>{{ incidencia()!.usuario.rol }}</p>
+    <p>{{ incidencia()!.usuario.email }}</p>
+
+    
+}
+ -->
+<div class="container mt-4" style="max-width:600px">
+  <h1 class="mb-3">Detalle de incidencia</h1>
+  <button class="btn btn-outline-secondary mb-4" routerLink="/incidencias">← Volver</button>
+
+  @if (incidencia()) {
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title">{{ incidencia()!.titulo }}</h4>
+        <p class="text-muted">{{ incidencia()!.aula }}</p>
+        <hr>
+        <p><strong>Categoría:</strong> {{ incidencia()!.categoria.nombre }}</p>
+        <p><strong>Estado:</strong>
+          <span class="badge bg-warning text-dark">{{ incidencia()!.estado }}</span>
+        </p>
+        <p><strong>Prioridad:</strong>
+          <span class="badge bg-danger">{{ incidencia()!.prioridad }}</span>
+        </p>
+        <p><strong>Descripción:</strong> {{ incidencia()!.descripcion }}</p>
+        <hr>
+        <p><strong>Usuario:</strong> {{ incidencia()!.usuario.nombre }}</p>
+        <p><strong>Rol:</strong> {{ incidencia()!.usuario.rol }}</p>
+        <p><strong>Email:</strong> {{ incidencia()!.usuario.email }}</p>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Usuarios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+  @if (usuarios.length === 0) {
+  <p class="mensaje-vacio">No hay usuarios para mostrar.</p>
+}
+  @if (usuarios.length > 0) {
+  <ion-list>
+    @for (u of usuarios; track u.id) {
+      <ion-item [routerLink]="['/tabs/usuarios-detalle', u.id]" button="true">
+        <ion-label>
+          <h2>{{ u.nombre }}</h2>
+          <p>{{ u.email }}</p>
+          <p>Rol: {{ u.rol }}</p>
+        </ion-label>
+      </ion-item>
+    }
+  </ion-list>
+}
+
+</ion-content>

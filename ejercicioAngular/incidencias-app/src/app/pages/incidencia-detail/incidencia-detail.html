@@ -1,0 +1,13 @@
+<h1>Detalle de incidencia</h1>
+<p>ID: {{ id }}</p>
+
+@if(incidencia.id == id){
+<div>
+    <p><strong>Título:</strong> {{ incidencia.titulo }}</p>
+    <p><strong>Aula:</strong> {{ incidencia.aula }}</p>
+    <p><strong>Categoría:</strong> {{ incidencia.categoria }}</p>
+    <p><strong>Usuario:</strong> {{ incidencia.usuario }}</p>
+    <p><strong>Estado:</strong> {{ incidencia.estado }}</p>
+    <p><strong>Prioridad:</strong> {{ incidencia.prioridad }}</p>
+  </div>
+}

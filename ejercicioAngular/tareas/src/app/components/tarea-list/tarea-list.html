@@ -1,0 +1,9 @@
+<div class="container mt-4" >
+    <h1 class="h3 mb-3">Lista Tareas</h1>
+    <div class="list-group">
+        <div *ngFor="let t of tareaSignal()" >
+        <app-tarea-item [tarea]="t" (estadoCambiado)="cambiarEstado($event)"></app-tarea-item>
+        </div>
+    </div>
+</div>
+

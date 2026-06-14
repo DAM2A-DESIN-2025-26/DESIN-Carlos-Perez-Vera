@@ -1,0 +1,7 @@
+{
+  "name": "IncidenciasApp2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

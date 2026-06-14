@@ -1,0 +1,20 @@
+ng new incidencias-app
+
+ng g c pages/incidencias-list
+ng g c pages/incidencia-detail
+ng g c pages/incidencia-new
+ng g c pages/usuarios-list
+ng g c pages/usuario-detail
+ng g c components/navbar
+
+ng g s services/incidencias      # Genera el servicio
+ng g s services/usuarios         # Servicio de usuarios
+
+ng g interface interfaces/incidencia   # Genera la interfaz
+ng g interface interfaces/usuario      # Interfaz de usuario
+
+ routerLink se usa para navegar desde HTML sin recargar la página y que routerLinkActive sirve para marcar visualmente la opción activa del menú.
+
+inject(): sirve para pedir un servicio a Angular (HTTP, tu propio servicio de incidencias, etc.).
+
+signal(): sirve para guardar y reaccionar a un valor que cambia (texto del formulario, lista de usuarios, etc.).

@@ -1,0 +1,76 @@
+<!-- <div>
+  <h1>Incidencias</h1>
+ 
+   <button routerLink="/nueva-incidencia">Nueva Incidencia</button>
+ 
+   <p>Incidencias abiertas: {{ incidenciasAbiertas() }}</p>
+ 
+    <button (click)="filtrarTodas()">Todas</button>
+    <button (click)="filtrarPorEstado('ABIERTA')">Abierta</button>
+    <button (click)="filtrarPorEstado('EN_PROCESO')">En proceso</button>
+    <button (click)="filtrarPorEstado('RESUELTA')">Resuelta</button>
+  
+   @for (i of incidencias(); track i.id) {
+  <div  [routerLink]="['/incidencias', i.id]">
+    <p>{{ i.titulo }}</p>
+    <p>{{ i.aula }}</p>
+    <p>{{ i.categoria.nombre }}</p>
+    <p>{{ i.estado }}</p>
+    <p>{{ i.prioridad }}</p>
+    <p>{{ i.usuario.nombre }}</p>
+    
+  </div>
+  }
+</div> -->
+
+<!-- incidencias.html -->
+<!-- <div class="pagina">
+  <h1>Incidencias</h1>
+  <button routerLink="/nueva-incidencia">Nueva Incidencia</button>
+  <p class="contador">Incidencias abiertas: {{ incidenciasAbiertas() }}</p>
+  <div class="toolbar">
+    <button (click)="filtrarTodas()">Todas</button>
+    <button (click)="filtrarPorEstado('ABIERTA')">Abierta</button>
+    <button (click)="filtrarPorEstado('EN_PROCESO')">En proceso</button>
+    <button (click)="filtrarPorEstado('RESUELTA')">Resuelta</button>
+  </div>
+  @for (i of incidencias(); track i.id) {
+    <div class="card" [routerLink]="['/incidencias', i.id]">
+      <p>{{ i.titulo }}</p>
+      <p>{{ i.aula }} — {{ i.categoria.nombre }}</p>
+      <p>{{ i.usuario.nombre }}</p>
+      <p>
+        <span class="badge badge-{{ i.estado }}">{{ i.estado }}</span>
+        <span class="badge badge-{{ i.prioridad }}">{{ i.prioridad }}</span>
+      </p>
+    </div>
+  }
+</div> -->
+
+<div class="container mt-4">
+  <h1 class="mb-3">Incidencias</h1>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <button class="btn btn-primary" routerLink="/nueva-incidencia">+ Nueva Incidencia</button>
+    <span class="badge bg-warning text-dark fs-6">Abiertas: {{ incidenciasAbiertas() }}</span>
+  </div>
+
+  <div class="btn-group mb-4">
+    <button class="btn btn-outline-secondary" (click)="filtrarTodas()">Todas</button>
+    <button class="btn btn-outline-warning" (click)="filtrarPorEstado('ABIERTA')">Abierta</button>
+    <button class="btn btn-outline-primary" (click)="filtrarPorEstado('EN_PROCESO')">En proceso</button>
+    <button class="btn btn-outline-success" (click)="filtrarPorEstado('RESUELTA')">Resuelta</button>
+  </div>
+
+  @for (i of incidencias(); track i.id) {
+    <div class="card mb-3 shadow-sm" style="cursor:pointer" [routerLink]="['/incidencias', i.id]">
+      <div class="card-body">
+        <h5 class="card-title">{{ i.titulo }}</h5>
+        <p class="card-text text-muted mb-1">{{ i.aula }} — {{ i.categoria.nombre }}</p>
+        <p class="card-text mb-2">{{ i.usuario.nombre }}</p>
+        <span class="badge bg-warning text-dark me-1">{{ i.estado }}</span>
+        <span class="badge bg-danger">{{ i.prioridad }}</span>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>incidencia-detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button [routerLink]="['/tabs/incidencias']">Volver</ion-button>
+
+  @if (incidencia) {
+    <h1>{{ incidencia.titulo }}</h1>
+    <p>Aula: {{ incidencia.aula }}</p>
+    <p>Categoría: {{ incidencia.categoria.nombre }}</p>
+    <p>Usuario: {{ incidencia.usuario.nombre }}</p>
+    <p>Rol: {{ incidencia.usuario.rol }}</p>
+    <p>Estado: {{ incidencia.estado }}</p>
+    <p>Prioridad: {{ incidencia.prioridad }}</p>
+    <p>Descripción: {{ incidencia.descripcion }}</p>
+    <p>Email: {{ incidencia.usuario.email }}</p>
+  }
+</ion-content>

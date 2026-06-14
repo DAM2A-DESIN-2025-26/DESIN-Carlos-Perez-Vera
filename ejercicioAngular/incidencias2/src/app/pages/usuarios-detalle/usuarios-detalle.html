@@ -1,0 +1,21 @@
+<!-- <button routerLink="/usuarios">Volver</button>
+@if(usuario()){
+    <p>{{usuario()!.nombre}}</p>
+    <p>{{usuario()!.email}}</p>
+    <p>{{usuario()!.rol}}</p>
+}
+ -->
+<div class="container mt-4" style="max-width:500px">
+  <h1 class="mb-3">Detalle de usuario</h1>
+  <button class="btn btn-outline-secondary mb-4" routerLink="/usuarios">← Volver</button>
+
+  @if (usuario()) {
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h4 class="card-title">{{ usuario()!.nombre }}</h4>
+        <p class="card-text text-muted">{{ usuario()!.email }}</p>
+        <span class="badge bg-secondary">{{ usuario()!.rol }}</span>
+      </div>
+    </div>
+  }
+</div>

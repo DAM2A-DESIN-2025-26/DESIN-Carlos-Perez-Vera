@@ -1,0 +1,38 @@
+<!-- <h1>Nombre: {{nombre}}</h1>
+<p>Edad: {{edad}}</p>
+
+@for(h of hobbies; track h){
+    <div>
+        <p>{{h}}</p>
+    </div>
+}
+
+@if(edad>18){
+    <p>Eres mayor de edad</p>
+} -->
+    <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h1 class="mb-3">Nombre: {{ nombre }}</h1>
+          <p class="mb-4">Edad: {{ edad }}</p>
+
+          <h2 class="h4 mb-3">Aficiones</h2>
+
+          <ul class="list-group mb-4">
+            @for (h of hobbies; track h) {
+              <li class="list-group-item">{{ h }}</li>
+            }
+          </ul>
+
+          @if (edad >= 18) {
+            <div class="alert alert-info">
+              Eres mayor de edad
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

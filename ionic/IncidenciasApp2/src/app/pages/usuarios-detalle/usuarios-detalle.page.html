@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>usuarios-detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button [routerLink]="['/tabs/usuarios']">Volver</ion-button>
+  @if(usuario){
+    
+      <h1>Nombre: {{usuario.nombre}}</h1>
+    <h3>Email: {{usuario.email}}</h3>
+    <h3>Rol: {{usuario.rol}}</h3>
+    
+    
+  }
+</ion-content>

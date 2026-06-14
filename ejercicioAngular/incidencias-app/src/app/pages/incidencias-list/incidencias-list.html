@@ -1,0 +1,24 @@
+<h1>INCIDENCIAS</h1>
+<button [routerLink]="['/incidencias/nueva']">Nueva Incidencia</button>
+
+<div>
+  <button>Todas</button>
+  <button>Abierta</button>
+  <button>En proceso</button>
+  <button>Resuelta</button>
+</div>
+
+<p>Incidencias abiertas: {{ abiertas }}</p>
+
+@for (i of incidencias; track i) {
+  <div>
+    <p><strong>Título:</strong> {{ i.titulo }}</p>
+    <p><strong>Aula:</strong> {{ i.aula }}</p>
+    <p><strong>Categoría:</strong> {{ i.categoria }}</p>
+    <p><strong>Usuario:</strong> {{ i.usuario }}</p>
+    <p><strong>Estado:</strong> {{ i.estado }}</p>
+    <p><strong>Prioridad:</strong> {{ i.prioridad }}</p>
+    <a [routerLink]="['/incidencias', i.id]">Ver detalle</a>
+  </div>
+  
+}

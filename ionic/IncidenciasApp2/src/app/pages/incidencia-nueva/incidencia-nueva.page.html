@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Nueva Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button [routerLink]="['/tabs/incidencias']">Volver</ion-button>
+
+  <ion-item>
+    <ion-label position="stacked">Titulo</ion-label>
+    <ion-input [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Descripcion</ion-label>
+    <ion-textarea [(ngModel)]="descripcion"></ion-textarea>
+  </ion-item>
+
+   <ion-item>
+  <ion-label position="stacked">Prioridad</ion-label>
+  <ion-select [(ngModel)]="prioridad">
+    <ion-select-option value="BAJA">Baja</ion-select-option>
+    <ion-select-option value="MEDIA">Media</ion-select-option>
+    <ion-select-option value="ALTA">Alta</ion-select-option>
+  </ion-select>
+</ion-item>
+   
+    <ion-item>
+  <ion-label position="stacked">Usuario</ion-label>
+  <ion-select [(ngModel)]="usuarioId">
+    @for (usuario of usuarios; track usuario.id) {
+      <ion-select-option [value]="usuario.id">
+        {{ usuario.nombre }}
+      </ion-select-option>
+    }
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Estado</ion-label>
+  <ion-select [(ngModel)]="estado">
+    <ion-select-option value="ABIERTA">Abierta</ion-select-option>
+    <ion-select-option value="EN_PROCESO">En proceso</ion-select-option>
+    <ion-select-option value="RESUELTA">Resuelta</ion-select-option>
+  </ion-select>
+</ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Aula</ion-label>
+        <ion-input [(ngModel)]="aula"></ion-input>
+      </ion-item>
+
+       <ion-item>
+  <ion-label position="stacked">Categoria</ion-label>
+  <ion-select [(ngModel)]="categoriaId">
+    @for (categoria of categorias; track categoria.id) {
+      <ion-select-option [value]="categoria.id">
+        {{ categoria.nombre }}
+      </ion-select-option>
+    }
+  </ion-select>
+</ion-item>
+
+       <ion-button (click)="crearIncidencia()">Crear Incidencia</ion-button>
+</ion-content>

@@ -1,0 +1,36 @@
+<!-- <div>
+    <h1>Bienvenido a mi portal personal</h1>
+    <p>Este es mi portal personal para la asignatura de desin</p>
+    <img src="/avatar-defecto.png">
+
+    <button (click)="aumentarContador()">Visualicaciones de perfil : {{contador()}}</button>
+</div> -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card shadow-sm text-center">
+        <div class="card-body">
+          <h1 class="mb-3">Bienvenido a mi portal personal</h1>
+
+          <p class="text-muted mb-4">
+            Este es mi portal personal para la asignatura de diseño
+          </p>
+
+          <img
+            src="/avatar-defecto.png"
+            alt="Avatar por defecto"
+            class="img-fluid rounded-circle mb-4 d-block mx-auto"
+            style="max-width: 200px;"
+          >
+
+          <button
+            class="btn btn-primary"
+            (click)="aumentarContador()"
+          >
+            Visualizaciones de perfil: {{ contador() }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
